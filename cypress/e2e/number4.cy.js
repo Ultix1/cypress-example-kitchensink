@@ -2,6 +2,15 @@ describe("template spec", () => {
   beforeEach(() => {
     cy.visit(Cypress.env("url"));
   });
+  it("test initial web app. (Add and delete all)",()=>{
+    cy.addTodo("Item1");
+    cy.addTodo("Item2");
+    cy.addTodo("Item3");
+    cy.addTodo("Item4");
+    cy.get('[for="toggle-all"]').click();
+    cy.get(".footer > .todo-button").click();
+    cy.validate(0);
+  })
   it("add item", () => {
     cy.addTodo("todo Item");
     cy.validate(3);
