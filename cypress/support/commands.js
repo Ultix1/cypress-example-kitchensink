@@ -24,18 +24,18 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('addTodo', (todo) =>{
-    cy.get('[data-test="new-todo"]').type(todo+"{enter}")
+  cy.get('[data-test="new-todo"]').type(todo+"{enter}")
 })
 
 Cypress.Commands.add('validate', (number) =>{
-    cy.get('.view').should('have.length',number)
+  cy.get('.view').should('have.length',number)
 })
 
 Cypress.Commands.add('deleteAll', ()=>{
-    cy.get('.destroy.todo-button').eq(0).click({force:true})
-    cy.get('.destroy.todo-button').eq(0).click({force:true})
+  cy.get('.destroy.todo-button').eq(0).click({force:true})
+  cy.get('.destroy.todo-button').eq(0).click({force:true})
 })
 
 Cypress.Commands.add('checkItem', (todo)=>{
-    cy.contains(todo).parent().find("input[type=checkbox]").check()
+  cy.contains(todo).parent().find("input[type=checkbox]").check()
 })
