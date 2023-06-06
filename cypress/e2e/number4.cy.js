@@ -21,9 +21,9 @@ describe("template spec", () => {
     cy.addTodo("Item3");
     cy.checkItem("Item1");
     cy.checkItem("Item2");
-    cy.visit(Cypress.env("url") + "#/active");
+    cy.contains("Active").click()
     cy.validate(1);
-    cy.visit(Cypress.env("url") + "#/completed");
+    cy.contains("Completed").click()
     cy.validate(2);
   });
   it("clear completed", () => {
